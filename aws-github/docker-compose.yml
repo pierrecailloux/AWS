@@ -1,13 +1,13 @@
 version: "3.9"
 services:
     back:
-      image: back-aws
+      image: registry.gitlab.com/pcailloux/back-aws
       container_name: back
       ports:
         - 8081:8081
       env_file: ./env
     front:
-      image: front-aws
+      image: registry.gitlab.com/pcailloux/front-aws 
       ports: 
         - 4200:80
       container_name: front
