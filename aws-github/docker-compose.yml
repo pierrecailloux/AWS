@@ -1,13 +1,13 @@
 version: "3.9"
 services:
     back:
-      image: back-aws
+      build: ./aws-github/API_Python/web
       container_name: back
       ports:
         - 8081:8081
       env_file: ./env
     front:
-      image: front-aws 
+      build: ./aws-github/API_Python/front/angular
       ports: 
         - 4200:80
       container_name: front
