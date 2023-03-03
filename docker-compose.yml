@@ -1,25 +1,31 @@
-version: "3.9"
+version: "3"
 services:
     back:
-      build: ./API_Python/web
+      image: back-aws
       container_name: back
       ports:
         - 8081:8081
       env_file: ./env
+      networks:
+        - AWS
+      
     front:
       build: ./API_Python/front/angular
       ports: 
         - 4200:80
       container_name: front
       env_file: ./env
+      networks:
+        - AWS
     bdd:
       image: mariadb
       container_name: bdd
       env_file: ./env
       ports:
         - 3306:3306
-    adminer:
-      image: adminer
-      restart: always
-      ports:
-       - 8082:8080
+      networks:
+        - AWS
+networks:
+    AWS:
+      name: AWS
+      driver: bridge

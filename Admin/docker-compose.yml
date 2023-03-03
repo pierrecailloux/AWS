@@ -1,0 +1,24 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins-docker
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"  
+      - "/Users/Shared/jenkins_home:/var/jenkins_home" 
+    networks:
+      - AWS
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8082:8080"
+    networks:
+     - AWS
+networks:
+    AWS:
+      name: AWS
+      driver: bridge
