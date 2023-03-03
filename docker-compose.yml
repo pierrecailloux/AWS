@@ -27,5 +27,4 @@ services:
         - AWS
 networks:
     AWS:
-      name: AWS
       driver: bridge
